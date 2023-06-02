@@ -110,5 +110,5 @@ setopt COMPLETE_IN_WORD
 setopt COMPLETE_ALIASES
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[ ! -f "${ZSH_CUSTOM}/p10k.zsh" ] || source "${ZSH_CUSTOM}/p10k.zsh"
 
