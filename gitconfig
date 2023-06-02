@@ -14,8 +14,17 @@
 	colorMoved = default
 	colorMovedWS = ignore-space-change
 [core]
+	pager = delta
 	untrackedCache = true
 	excludesfile = /opt/dotfiles/gitignore_global
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	light = false
+	line-numbers = true
+[merge]
+	conflictstyle = diff3
 [alias]
 	st = status -sb
 	ci = commit -v
@@ -36,7 +45,6 @@
 	branch = auto
 	interactive = auto
 	grep = auto
-
 [color "diff"]
 	commit = green
 	meta = yellow
