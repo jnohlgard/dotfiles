@@ -109,6 +109,18 @@ setopt EXTENDED_GLOB
 setopt COMPLETE_IN_WORD
 setopt COMPLETE_ALIASES
 
+# Set title labels to use %d for cwd. Using %~ results in _p9k__cwd instead of
+# the real dir due to p10k internals. These variables need to be set _after_
+# sourcing omz, otherwise the values will be overridden by termsupport.zsh.
+ZSH_THEME_TERM_TAB_TITLE_IDLE="%15<..<%d%<<" #15 char left truncated PWD
+#ZSH_THEME_TERM_TITLE_IDLE="%3>.>%n%>>@%3>.>%m%3<.<%m%>>: %12<..<%d%<<"
+ZSH_THEME_TERM_TITLE_IDLE="%15<..<%d%<<"
+
+if [ -e '/run/.toolboxenv' ]; then
+    ZSH_THEME_TERM_TAB_TITLE_IDLE="🧰${ZSH_THEME_TERM_TAB_TITLE_IDLE}"
+    ZSH_THEME_TERM_TITLE_IDLE="🧰${ZSH_THEME_TERM_TITLE_IDLE}"
+fi
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [ ! -f "${ZSH_CUSTOM}/p10k.zsh" ] || source "${ZSH_CUSTOM}/p10k.zsh"
 
