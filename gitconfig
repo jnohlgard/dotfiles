@@ -14,7 +14,7 @@
 	colorMoved = default
 	colorMovedWS = ignore-space-change
 [core]
-	pager = delta
+	#pager = delta
 	untrackedCache = true
 	excludesfile = /opt/dotfiles/gitignore_global
 [interactive]
