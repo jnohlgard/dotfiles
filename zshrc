@@ -8,6 +8,20 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+if [ -z "${EDITOR:-}" ]; then
+  if command -v vim &>/dev/null; then
+    export EDITOR=vim
+    export VISUAL=vim
+  elif command -v vi &>/dev/null; then
+    export EDITOR=vi
+    export VISUAL=vi
+  fi
+fi
+
+if [ "${TERM:-}" = 'alacritty' ]; then
+  export COLORTERM=truecolor
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH=/opt/dotfiles/oh-my-zsh
 export ZSH_CUSTOM=/opt/dotfiles/omz-custom
