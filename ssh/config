@@ -1,0 +1,8 @@
+UserKnownHostsFile ~/.ssh/known_hosts ~/.ssh/known_hosts.d/host-%k.pub
+
+Host github.com
+	Hostname github.com
+	User git
+	IdentityFile ~/.ssh/id_github
+	IdentitiesOnly yes
+	AddKeysToAgent yes
