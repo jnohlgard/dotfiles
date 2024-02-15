@@ -60,3 +60,6 @@ highlight CursorLineNr ctermfg=245 ctermbg=238 cterm=bold
 "set ttymouse=sgr
 set mouse=a
 
+" Display tabs
+set list
+set listchars=tab:⤑◌⁝
