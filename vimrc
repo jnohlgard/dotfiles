@@ -58,7 +58,7 @@ highlight CursorLineNr ctermfg=245 ctermbg=238 cterm=bold
 " enable mouse
 "set ttymouse=xterm2
 "set ttymouse=sgr
-set mouse=a
+"set mouse=a
 
 " Display tabs
 set list
