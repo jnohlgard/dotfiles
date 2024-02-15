@@ -8,14 +8,12 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-if [ -z "${EDITOR:-}" ]; then
-  if command -v vim &>/dev/null; then
-    export EDITOR=vim
-    export VISUAL=vim
-  elif command -v vi &>/dev/null; then
-    export EDITOR=vi
-    export VISUAL=vi
-  fi
+if command -v vim &>/dev/null; then
+  export EDITOR=vim
+  export VISUAL=vim
+elif command -v vi &>/dev/null; then
+  export EDITOR=vi
+  export VISUAL=vi
 fi
 
 if [ "${TERM:-}" = 'alacritty' ]; then
