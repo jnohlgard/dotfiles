@@ -136,6 +136,10 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [ ! -f "${ZSH_CUSTOM}/p10k.zsh" ] || source "${ZSH_CUSTOM}/p10k.zsh"
 
+if [ -z "${LIBVIRT_DEFAULT_URI:-}" ]; then
+  export LIBVIRT_DEFAULT_URI='qemu:///system'
+fi
+
 for cmd in \
   kubectl \
   talosctl \
