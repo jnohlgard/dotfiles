@@ -140,9 +140,14 @@ for cmd in \
   kubectl \
   talosctl \
   cilium \
+  hubble \
   helm \
   flux \
   cosign \
+  pomerium-cli \
+  kustomize \
+  egctl \
+  step \
   ; do
   if command -v "${cmd}" &>/dev/null; then
     source <("${cmd}" completion zsh)
