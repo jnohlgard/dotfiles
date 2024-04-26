@@ -81,9 +81,17 @@
         "spacing": 10
     },
     "clock": {
-	"format": "{:%F <big>%R</big> <small>%Z W%V</small>}",
+        "calendar": {
+            "format": {
+                //"months": "",
+                "days": "<tt>{}</tt>",
+                "today": "<span bgcolor=\"#cccccc80\"><b>{}</b></span>"
+            },
+            "weeks-pos": "left"
+        },
+        "format": "{:%F <big>%R</big> <small>%Z W%V</small>}",
         // "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "tooltip-format": "{:<b>%A %e %B %Y</b>}\n{calendar}",
         "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
