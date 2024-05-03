@@ -17,6 +17,7 @@ for tool in \
   kubeseal \
   pomerium-cli \
   step \
+  netbird \
   ; do
   printf '\nInstalling %s\n' "${tool}"
   "${mydir}/install-${tool}.sh"
