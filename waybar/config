@@ -5,25 +5,45 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
-    "modules-center": ["sway/window"],
-    "modules-right": ["mpris", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "sway/language", "battery", "battery#bat2", "clock", "tray"],
+    "modules-left": [
+      "sway/workspaces",
+      "sway/mode",
+      "sway/scratchpad"
+    ],
+    "modules-center": [
+      "sway/window"
+    ],
+    "modules-right": [
+      "mpris",
+      "idle_inhibitor",
+      "pulseaudio",
+      "network",
+      "cpu",
+      "memory",
+      "temperature",
+      "backlight",
+      //"keyboard-state",
+      "sway/language",
+      "battery",
+      "clock",
+      "tray"
+    ],
     // Modules configuration
-    // "sway/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "format": "{name}: {icon}",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }
-    // },
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{name}: {icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "5": "",
+            "9": "",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        }
+    },
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
@@ -83,15 +103,14 @@
     "clock": {
         "calendar": {
             "format": {
-                //"months": "",
                 "days": "<tt>{}</tt>",
                 "today": "<span bgcolor=\"#cccccc80\"><b>{}</b></span>"
             },
             "weeks-pos": "left"
         },
         "format": "{:%F <big>%R</big> <small>%Z W%V</small>}",
-        // "timezone": "America/New_York",
-        "tooltip-format": "{:<b>%A %e %B %Y</b>}\n{calendar}",
+        //"timezone": "Europe/Stockholm",
+        "tooltip-format": "<b>{:%A %e %B %Y}</b>\n{calendar}",
         "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
@@ -116,7 +135,7 @@
     },
     "battery": {
         "states": {
-            // "good": 95,
+            "good": 95,
             "warning": 30,
             "critical": 15
         },
@@ -128,9 +147,9 @@
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
-    "battery#bat2": {
-        "bat": "BAT2"
-    },
+    //"battery#bat2": {
+    //    "bat": "BAT2"
+    //},
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
@@ -160,30 +179,30 @@
         "on-click": "pavucontrol"
     },
     "mpris": {
-	"format": "{player_icon} {dynamic}",
-	"format-paused": "{status_icon} <i>{dynamic}</i>",
-	"player-icons": {
-	    "default": "▶",
+        "format": "{player_icon} {dynamic}",
+        "format-paused": "{status_icon} <i>{dynamic}</i>",
+        "player-icons": {
+            "default": "▶",
             "spotify": "",
             "firefox": "",
-	    "mpv": "🎵"
-	},
-	"status-icons": {
-	    "paused": "⏸"
-	},
-	// "ignored-players": ["firefox"]
-    },
-    "custom/media": {
-        "format": "{icon} {}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
+            "mpv": "🎵"
         },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    }
+        "status-icons": {
+            "paused": "⏸"
+        },
+        // "ignored-players": ["firefox"]
+    },
+    //"custom/media": {
+    //    "format": "{icon} {}",
+    //    "return-type": "json",
+    //    "max-length": 40,
+    //    "format-icons": {
+    //        "spotify": "",
+    //        "default": "🎜"
+    //    },
+    //    "escape": true,
+    //    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+    //    // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    //}
 }
 
