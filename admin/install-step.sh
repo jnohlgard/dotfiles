@@ -24,6 +24,7 @@ oidc_issuer="https://token.actions.githubusercontent.com"
 curl -LfO --output-dir "${tmpdir}" --remote-name-all \
   "${release_url}/checksums.txt"{,.pem,.sig} \
   "${release_url}/${exe}_linux_${version}_${altarch}.tar.gz"{.pem,.sig,} \
+  ;
 
 cosign verify-blob "${tmpdir}/checksums.txt" \
   --certificate "${tmpdir}/checksums.txt.pem" \
