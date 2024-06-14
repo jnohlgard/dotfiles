@@ -17,6 +17,7 @@ for tool in \
   kubeseal \
   pomerium-cli \
   step \
+  step-kms-plugin \
   netbird \
   ; do
   printf '\nInstalling %s\n' "${tool}"
