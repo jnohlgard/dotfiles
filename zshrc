@@ -152,6 +152,7 @@ for cmd in \
   kustomize \
   egctl \
   step \
+  omnictl \
   ; do
   if command -v "${cmd}" &>/dev/null; then
     source <("${cmd}" completion zsh)
