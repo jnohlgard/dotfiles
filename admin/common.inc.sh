@@ -77,4 +77,4 @@ elif command -v shasum > /dev/null 2>&1; then
 fi
 
 tmpdir="$(mktemp -d -t download.XXXXXXXX)"
-trap "rm -rv -- '${tmpdir}'" EXIT
+trap "rm -r -- '${tmpdir}'" EXIT
