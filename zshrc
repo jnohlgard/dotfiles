@@ -152,6 +152,7 @@ for cmd in \
   kustomize \
   egctl \
   step \
+  step-kms-plugin \
   omnictl \
   ; do
   if command -v "${cmd}" &>/dev/null; then
