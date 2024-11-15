@@ -8,7 +8,8 @@ fi
 
 . /etc/os-release
 
-version="v1.29"
+stable=$(curl -sL 'https://cdn.dl.k8s.io/release/stable.txt')
+version="${stable%.*}"
 base_url="https://pkgs.k8s.io/core:/stable:/${version}"
 
 case "${ID}" in
