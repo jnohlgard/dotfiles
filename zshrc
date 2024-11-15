@@ -21,8 +21,8 @@ if [ "${TERM:-}" = 'alacritty' ]; then
 fi
 
 # Path to your oh-my-zsh installation.
-export ZSH=/opt/dotfiles/oh-my-zsh
-export ZSH_CUSTOM=/opt/dotfiles/omz-custom
+export ZSH=${XDG_CONFIG_HOME:-${HOME:-~}/.config}/dotfiles/oh-my-zsh
+export ZSH_CUSTOM=${XDG_CONFIG_HOME:-${HOME:-~}/.config}/dotfiles/omz-custom
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,

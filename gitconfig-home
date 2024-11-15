@@ -2,4 +2,4 @@
 	#name = user
 	#email = email@example.com
 [include]
-	path = /opt/dotfiles/gitconfig
+	path = ~/.config/dotfiles/gitconfig
