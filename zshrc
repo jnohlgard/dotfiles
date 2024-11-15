@@ -154,6 +154,7 @@ for cmd in \
   step \
   step-kms-plugin \
   omnictl \
+  istioctl \
   ; do
   if command -v "${cmd}" &>/dev/null; then
     source <("${cmd}" completion zsh)
