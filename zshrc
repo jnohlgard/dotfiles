@@ -148,6 +148,7 @@ for cmd in \
   helm \
   flux \
   cosign \
+  argocd \
   pomerium-cli \
   kustomize \
   egctl \
