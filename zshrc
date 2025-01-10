@@ -143,6 +143,7 @@ fi
 for cmd in \
   kubectl \
   talosctl \
+  netbird \
   cilium \
   hubble \
   helm \
