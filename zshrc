@@ -192,3 +192,6 @@ for cmd in \
     source <("${cmd}" completion zsh)
   fi
 done
+if command -v direnv &>/dev/null; then
+  . <(direnv hook zsh)
+fi
