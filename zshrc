@@ -138,6 +138,7 @@ ZSH_THEME_TERM_TITLE_IDLE="%15<..<%d%<<"
 if [ -e '/run/.toolboxenv' ]; then
     ZSH_THEME_TERM_TAB_TITLE_IDLE="🧰${ZSH_THEME_TERM_TAB_TITLE_IDLE}"
     ZSH_THEME_TERM_TITLE_IDLE="🧰${ZSH_THEME_TERM_TITLE_IDLE}"
+    export CONTAINER_HOST="${CONTAINER_HOST:-}"
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
