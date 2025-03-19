@@ -147,6 +147,29 @@ if [ -z "${LIBVIRT_DEFAULT_URI:-}" ]; then
   export LIBVIRT_DEFAULT_URI='qemu:///system'
 fi
 
+dtbs() {
+  dtc -I dtb -O dts "$@"
+}
+
+dtsb() {
+  dtc -I dts -O dtb "$@"
+}
+
+dtdiff-ng() {
+  if [ $# -ne 2 ]; then
+    >&2 printf 'Usage: dtdiff-ng <left_dtb> <right_dtb>\n'
+    return 2
+  fi
+  local left=$1
+  local right=$2
+  local pager=
+  test -c /proc/self/fd/1 && pager=less
+  diff -U5 ${pager:+--color=always} \
+    <(dtbs -s "${left}" | grep -v -e 'phandle = ') \
+    <(dtbs -s "${right}" | grep -v -e 'phandle = ') \
+    | ${pager:-cat}
+}
+
 for cmd in \
   kubectl \
   talosctl \
