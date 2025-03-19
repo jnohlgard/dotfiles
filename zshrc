@@ -121,6 +121,13 @@ setopt EXTENDED_GLOB
 setopt COMPLETE_IN_WORD
 setopt COMPLETE_ALIASES
 
+bindkey -M emacs '^[[1;6C' vi-forward-blank-word-end
+bindkey -M vicmd '^[[1;6C' vi-forward-blank-word-end
+bindkey -M viins '^[[1;6C' vi-forward-blank-word-end
+bindkey -M emacs '^[[1;6D' vi-backward-blank-word
+bindkey -M vicmd '^[[1;6D' vi-backward-blank-word
+bindkey -M viins '^[[1;6D' vi-backward-blank-word
+
 # Set title labels to use %d for cwd. Using %~ results in _p9k__cwd instead of
 # the real dir due to p10k internals. These variables need to be set _after_
 # sourcing omz, otherwise the values will be overridden by termsupport.zsh.
