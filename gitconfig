@@ -52,6 +52,10 @@
 	old = red
 	new = green
 	whitespace = red reverse
+[submodule]
+	recurse = true
+[push]
+	recurseSubmodules = false
 
 # Always push using SSH
 [url "git@github.com:"]
