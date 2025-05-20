@@ -3,6 +3,6 @@ UserKnownHostsFile ~/.ssh/known_hosts ~/.ssh/known_hosts.d/host-%k.pub
 Host github.com
 	Hostname github.com
 	User git
-	IdentityFile ~/.ssh/id_github
+	IdentityFile ~/.ssh/id_ed25519_sk_rk_github.com
 	IdentitiesOnly yes
 	AddKeysToAgent yes
