@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=uwsm default
+Comment=Universal Wayland Session Manager
+Exec=uwsm start default
+Type=Application
+DesktopNames=uwsm
