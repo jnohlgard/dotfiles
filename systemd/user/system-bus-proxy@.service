@@ -1,0 +1,12 @@
+[Unit]
+Description=Instanced D-Bus Message Bus
+Documentation=man:dbus-broker-launch(1)
+
+[Service]
+Type=exec
+Sockets=%N.socket
+ExecStart=%h/proj/xdg-dbus-proxy/build/xdg-dbus-proxy "unix:path=/run/dbus/system_bus_socket" %t/%i/system-bus-proxy --filter --log --sloppy-names
+Slice=session.slice
+
+[Install]
+Also=%N.socket

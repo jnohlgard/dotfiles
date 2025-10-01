@@ -1,0 +1,7 @@
+[Unit]
+Description=Web Browser
+CollectMode=inactive-or-failed
+
+[Service]
+ExecStart=librewolf
+ExitType=cgroup

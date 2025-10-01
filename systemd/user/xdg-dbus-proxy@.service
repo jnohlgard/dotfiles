@@ -1,0 +1,12 @@
+[Unit]
+Description=Instanced D-Bus User Message Bus
+Documentation=man:dbus-broker-launch(1)
+
+[Service]
+Type=exec
+Sockets=%N.socket
+ExecStart=%h/proj/xdg-dbus-proxy/build/xdg-dbus-proxy "${DBUS_SESSION_BUS_ADDRESS}" %t/%i --filter '--call=org.freedesktop.portal.*=*' '--broadcast=org.freedesktop.portal.*=@/org/freedesktop/portal/*' --log --sloppy-names
+Slice=session.slice
+
+[Install]
+Also=%N.socket
