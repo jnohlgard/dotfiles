@@ -74,7 +74,7 @@ output * bg /usr/share/backgrounds/default.jxl fill
 # Basics:
 #
     # Start a terminal
-    bindsym $mod+Return exec $term
+    bindsym $mod+Return exec uwsm app -s app-term.slice -- $term
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -235,3 +235,5 @@ bindsym $mod+r mode "resize"
 # the trick, it's all in the `wordexp(3)`.
 #
 include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
+
+exec uwsm finalize
