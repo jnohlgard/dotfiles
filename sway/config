@@ -236,4 +236,7 @@ bindsym $mod+r mode "resize"
 #
 include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
 
+font pango:monospace 10
+for_window [sandbox_app_id="."] title_format "<span bgcolor='#dd993399'><span font='8'>[%sandbox_app_id]</span> <b>%title</b></span>", border normal 4, shortcuts_inhibitor disable
+
 exec uwsm finalize
