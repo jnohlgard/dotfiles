@@ -21,23 +21,23 @@ version="${version#v}"
 . /etc/os-release
 
 if [ "$(id -u)" -ne 0 ]; then
-  curl -Lf --output-dir "${tmpdir}" --remote-name-all \
-    "${release_url}/${exe}_checksums.txt"{-keyless.pem,-keyless.sig,} \
-    "${release_url}/${exe}-linux-${altarch}"{-keyless.pem,-keyless.sig,}
-  ( cd "${tmpdir}" && ${sha256sum_cmd} --ignore-missing -c "${tmpdir}/${exe}_checksums.txt" )
+  curl -Lf --output-dir "${tmpdir}" --remote-name-all --parallel \
+    "${release_url}/${exe}_checksums.txt"{.sigstore.json,} \
+    "${release_url}/${exe}-linux-${altarch}"{-kms.sigstore.json,} \
+    "${release_url}/release-cosign.pub"
   if command -v cosign > /dev/null 2>&1; then
     # Upgrading, use the old version to verify the new
-    mv "${tmpdir}/${exe}-linux-${altarch}-keyless.pem"{,.b64}
-    mv "${tmpdir}/${exe}-linux-${altarch}-keyless.sig"{,.b64}
-    base64 -d < "${tmpdir}/${exe}-linux-${altarch}-keyless.sig.b64" > "${tmpdir}/${exe}-linux-${altarch}-keyless.sig"
-    base64 -d < "${tmpdir}/${exe}-linux-${altarch}-keyless.pem.b64" > "${tmpdir}/${exe}-linux-${altarch}-keyless.pem"
     cosign verify-blob \
-      "${tmpdir}/${exe}-linux-${altarch}" \
-      --signature="${tmpdir}/${exe}-linux-${altarch}-keyless.sig" \
-      --certificate="${tmpdir}/${exe}-linux-${altarch}-keyless.pem" \
-      --certificate-identity="keyless@projectsigstore.iam.gserviceaccount.com" \
-      --certificate-oidc-issuer="https://accounts.google.com"
+      --bundle "${tmpdir}/${exe}_checksums.txt.sigstore.json" \
+      --certificate-identity "keyless@projectsigstore.iam.gserviceaccount.com" \
+      --certificate-oidc-issuer "https://accounts.google.com" \
+      "${tmpdir}/${exe}_checksums.txt"
+    cosign verify-blob \
+      --bundle "${tmpdir}/${exe}-linux-${altarch}-kms.sigstore.json" \
+      --key "${tmpdir}/release-cosign.pub" \
+      "${tmpdir}/${exe}-linux-${altarch}"
   fi
+  ( cd "${tmpdir}" && ${sha256sum_cmd} --ignore-missing -c "${tmpdir}/${exe}_checksums.txt" )
   install_exe "${tmpdir}/${exe}-linux-${altarch}" "${exe}"
 else
   if command -v cosign > /dev/null 2>&1; then
