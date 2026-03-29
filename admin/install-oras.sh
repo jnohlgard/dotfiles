@@ -18,7 +18,7 @@ version="$(github_latest_version "${repo_url}")"
 release_url="${repo_url}/releases/download/${version}"
 version="${version#v}"
 
-# curl -sfSL https://github.com/qweeah.gpg | gpg --import -
+# curl -sfSL https://github.com/oras-project/oras/raw/refs/heads/main/KEYS | gpg --import -
 curl -Lf --output-dir "${tmpdir}" --remote-name-all \
   "${release_url}/${exe}_${version}_checksums.txt.asc" \
   "${release_url}/${exe}_${version}_checksums.txt"
