@@ -28,5 +28,6 @@ curl -Lf --output-dir "${tmpdir}" --remote-name-all \
   "${release_url}/${exe}_${version}_linux_${altarch}.tar.gz"
 (cd "${tmpdir}" && ${sha256sum_cmd} --ignore-missing -c "${tmpdir}/${exe}_${version}_checksums.txt")
 gpg --verify "${tmpdir}/${exe}_${version}_linux_${altarch}.tar.gz.asc" "${tmpdir}/${exe}_${version}_linux_${altarch}.tar.gz"
+tar -C "${tmpdir}" -xf "${tmpdir}/${exe}_${version}_linux_${altarch}.tar.gz"
 
 install_exe "${tmpdir}/${exe}"
