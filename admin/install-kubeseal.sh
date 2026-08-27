@@ -1,7 +1,7 @@
 #!/usr/bin/sh
 set -euf
 
-repo_url="https://github.com/bitnami-labs/sealed-secrets"
+repo_url="https://github.com/bitnami/sealed-secrets"
 exe="kubeseal"
 
 case "$0" in
